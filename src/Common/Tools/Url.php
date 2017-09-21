@@ -17,7 +17,7 @@ abstract class Url
      * @param string $template
      * @return string
      */
-    public static function stylesheet($template): string
+    public static function stylesheet(string $template): string
     {
         list ($component, $file) = Path::separate($template, true);
         $elements = [
@@ -34,13 +34,30 @@ abstract class Url
      * @param string $template
      * @return string
      */
-    public static function image($template): string
+    public static function image(string $template): string
     {
         list ($component, $file) = Path::separate($template, true);
         $elements = [
             Http::current(),
             strtolower($component),
             'img',
+            $file
+        ];
+        return implode('/', $elements);
+    }
+
+    /**
+     *
+     * @param string $template
+     * @return string
+     */
+    public static function javascript(string $template): string
+    {
+        list ($component, $file) = Path::separate($template, true);
+        $elements = [
+            Http::current(),
+            strtolower($component),
+            'js',
             $file
         ];
         return implode('/', $elements);

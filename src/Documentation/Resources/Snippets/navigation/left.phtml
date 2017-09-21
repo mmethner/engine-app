@@ -1,0 +1,40 @@
+<?php
+/*
+ * This file is part of the Engine framework.
+ * (c) Mathias Methner <mathiasmethner@gmail.com>
+ * Please view the LICENSE file
+ *
+ * @var $this \Engine\App\Documentation\View\View
+ */
+?>
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+
+            <li>
+                <a href="<?=$this->route('Documentation::Controller::overview');?>">
+                    <i class="fa fa-dashboard fa-fw"></i>
+                    <?=\Trans::late('Overview');?>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?=$this->route('Documentation::Controller::module');?>">
+                    <i class="fa fa-th fa-fw"></i>
+                    <?=\Trans::late('Modules');?>
+                </a>
+            </li>
+
+            <hr>
+
+
+            <li>
+                <a href="<?=$this->route('Documentation::Controller::oss');?>">
+                    <i class="fa fa-github fa-fw"></i>
+                    <?=\Trans::late('Open Source');?>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>

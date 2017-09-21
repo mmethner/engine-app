@@ -18,4 +18,22 @@ class Controller extends \Engine\Core\Controller
     {
         $this->view->snippet('Documentation::overview.phtml');
     }
+
+    /**
+     *
+     * @return void
+     */
+    public function moduleAction(): void
+    {
+        $this->view->snippet('Documentation::module.phtml');
+    }
+
+    /**
+     *
+     * @return void
+     */
+    public function ossAction(): void
+    {
+        $this->view->snippet('Documentation::oss.phtml');
+    }
 }

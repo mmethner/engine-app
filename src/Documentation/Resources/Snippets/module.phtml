@@ -1,0 +1,55 @@
+<?php
+/*
+ * This file is part of the Engine framework.
+ * (c) Mathias Methner <mathiasmethner@gmail.com>
+ * Please view the LICENSE file
+ *
+ * @var $this \Engine\App\Documentation\View\View
+ */
+$this->extend('Documentation::skeleton.phtml');
+?>
+<h1>Module</h1>
+
+The framework uses modules to cluster functionality. Every folder in <code>src/</code> is one module.
+The modules are separated via their own <code>namespace</code> and can use each other.<br/><br/>
+
+You can add as many modules as you want. To register a new one to the framework, you need to add a new route for it
+in <code>config/routes.yml</code>.<br/><br/>
+
+<h2>Module structure</h2>
+
+Each modules must consist of the following structure.
+The <code>Documentation</code> module is used as example.<br/><br/>
+
+<code>
+    ----Documentation<br/>
+    --------Config<br/>
+    --------Controller<br/>
+    --------Resources<br/>
+    ------------Language<br/>
+    ------------Snippets<br/>
+    --------View<br/>
+</code><br/><br/>
+
+The folder <code>Resources/Language</code> is obsolete, if you do not use the translation functionality.<br/><br/>
+
+<h2>View & Controller</h2>
+Every module must define it's own <code>View</code> and <code>Controller</code>. If there is no methods to add or
+change, just extend the <code>\Engine\Core\View|Controller</code> classes.<br/><br/>
+
+HTML Snippets, are always rendered through the <code>View</code>. To assign content to a view, call the
+<code>$view->snippet("module::snippet.phtml")</code> methods.
+If you want to use variable content in a snippet, you also need to assign that content to the <code>View</code> like
+<code>$view->assign("key",$value)</code>. Usually the assignments and snippet selection is done in the
+<code>Controller</code>, because each <code>Controller</code> has it's own <code>View</code>.<br/><br/>
+
+<h2>Snippets</h2>
+
+<code>Snippets</code> can include other <code>Snippets</code> in two ways:<br/><br/>
+To include a <code>Snippet</code> which acts as a page template or skeleton, call <code>$this->extend('module::skeleton.phtml');</code>
+in your snippet. To include other snippets on a specific part of your snippet, call the
+<code>$this->renderSnippet('module::filename.phtml');</code> method of the <code>View</code>.<br/><br/>
+
+The .phtml ending shows, that this is html output, which is generated with php.<br/>
+Inside the <code>Snippets</code> application logic is forbidden. This must go to the controller.<br/>
+All kind of layout logic must go the <code>View</code>.

@@ -14,24 +14,32 @@ class View extends \Engine\Core\View
 {
     /**
      *
-     * @param string $template
-     *            e.g. root::favicon.png
+     * @param string $template e.g. documentation::favicon.png
      * @return string
      */
-    public function favicon($template): string
+    public function favicon(string $template): string
     {
         return file_exists(Path::image($template)) ? '<link rel="icon" href="' . Url::image($template) . '" type="image/png">' : '';
     }
 
     /**
      *
-     * @param string $template
-     *            e.g. root::stylesheet.css
+     * @param string $template e.g. documentation::stylesheet.css
      * @return string
      */
-    public function stylesheet($template): string
+    public function stylesheet(string $template): string
     {
         return file_exists(Path::stylesheet($template)) ? '<link rel="stylesheet" href="' . Url::stylesheet($template) . '" type="text/css">' : '';
+    }
+
+    /**
+     *
+     * @param string $template e.g. documentation::jquery.js
+     * @return string
+     */
+    public function javascript(string $template): string
+    {
+        return file_exists(Path::javascript($template)) ? '<script src="' . Url::javascript($template) . '"></script>' : '';
     }
 
 }

@@ -15,7 +15,7 @@ abstract class Path extends \Engine\Tools\Path
      * @param string $template
      * @return string
      */
-    public static function image($template): string
+    public static function image(string $template): string
     {
         list ($component, $file) = static::separate($template);
         $elements = [
@@ -33,7 +33,7 @@ abstract class Path extends \Engine\Tools\Path
      * @param string $template
      * @return string
      */
-    public static function stylesheet($template): string
+    public static function stylesheet(string $template): string
     {
         list ($component, $file) = static::separate($template);
         $elements = [
@@ -41,6 +41,24 @@ abstract class Path extends \Engine\Tools\Path
             'public',
             strtolower($component),
             'css',
+            $file
+        ];
+        return implode(DIRECTORY_SEPARATOR, $elements);
+    }
+
+    /**
+     *
+     * @param string $template
+     * @return string
+     */
+    public static function javascript(string $template): string
+    {
+        list ($component, $file) = static::separate($template);
+        $elements = [
+            ENGINE_APP_ROOT,
+            'public',
+            strtolower($component),
+            'js',
             $file
         ];
         return implode(DIRECTORY_SEPARATOR, $elements);
