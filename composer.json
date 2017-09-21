@@ -1,0 +1,34 @@
+{
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "mmethner/engine",
+        "version": "0.5",
+        "source": {
+          "url": "https://github.com/mmethner/engine.git",
+          "type": "git",
+          "reference": "master"
+        },
+        "autoload": {
+          "psr-4": {
+            "Engine\\": "src/",
+            "Engine\\Test\\": "test/"
+          },
+          "files": [
+            "src/Tools/Trans.php"
+          ]
+        }
+      }
+    }
+  ],
+  "require": {
+    "php": ">=7.1.0",
+    "vlucas/spot2": "2.1.7",
+    "mustangostang/spyc": "0.5.x-dev",
+    "mmethner/engine": "0.5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.3.0"
+  }
+}

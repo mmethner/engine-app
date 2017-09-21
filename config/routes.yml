@@ -1,0 +1,3 @@
+documentaton:
+  resource: "/Documentation/Config/config.yml"
+  prefix: "/[:locale]"

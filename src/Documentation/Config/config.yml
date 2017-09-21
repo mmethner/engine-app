@@ -1,0 +1,4 @@
+routes:
+  overview: ['/overview', 'Documentation::Controller', overviewAction]
+  default: ['', 'Documentation::Controller', overviewAction]
+  root: ['/', 'Documentation::Controller', overviewAction]

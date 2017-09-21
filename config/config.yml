@@ -1,0 +1,11 @@
+core:
+  url: #will be set later
+  environment: prod
+  namespace: \Engine\App
+
+locale: 
+  default: en
+  available: [en,de]
+
+database:
+  enable: false
